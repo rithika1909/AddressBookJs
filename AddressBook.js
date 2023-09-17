@@ -18,8 +18,9 @@ class AddressBook {
     }
 
     addNewContact(contact) {
+        validate(contact);
         this.contacts.push(contact);
-        console.log("Contact Added " + contact.FirstName);
+        console.log(contact.FirstName + " contact Added ");
     }
 
     displayContactDetails() {
@@ -38,19 +39,26 @@ class AddressBook {
                 element.Zip = contact.Zip;
                 element.PhoneNumber = contact.PhoneNumber;
                 element.Email = contact.Email;
-                console.log("Edited AddressBook Successfully");
+                console.log("Edited Address Book Successfully");
             }
         });
     }
     DeleteContact(name) {
+        var a = 0;
         this.contacts.forEach(element => {
             if (name == element.FirstName) {
-                this.contacts.pop(element);
+                this.contacts.splice(a, 1);
                 console.log(name + " deleted Successfully");
             }
+            a++;
         });
     }
-
+    CountContact() {
+        const count = this.contacts.reduce((count, sum) => {
+            return count + 1
+        }, 0);
+        console.log("Total number of contacts in the Addressbook: " + count);
+    }
 }
 
 function validate(Details) {
@@ -81,7 +89,7 @@ function validate(Details) {
         throw new error("Invalid Email")
     }
     else {
-        addressbook.addNewContact(Details);
+        console.log("Validation Successful");;
     }
 }
 
@@ -104,8 +112,9 @@ const Contact2 = new Contact(
     Zip = "123456",
     PhoneNumber = "1023445678",
     Email = "riya@gmail.com");
-validate(Contact1);
-validate(Contact2);
+
+addressbook.addNewContact(Contact1);
+addressbook.addNewContact(Contact2);
 
 const Contact3 = new Contact(
     FirstName = "Shanthi",
@@ -116,6 +125,7 @@ const Contact3 = new Contact(
     Zip = "600043",
     PhoneNumber = "1234567893",
     Email = "shanthi@gmail.com");
+
 addressbook.addNewContact(Contact3);
 
 // const UpdateContact = new Contact(
@@ -128,5 +138,7 @@ addressbook.addNewContact(Contact3);
 //     PhoneNumber = "9789286965",
 //     Email = "rithika@gmail.com");
 // addressbook.EditContact(UpdateContact);
+
 addressbook.DeleteContact("Shanthi");
 addressbook.displayContactDetails();
+addressbook.CountContact();
