@@ -16,13 +16,19 @@ class AddressBook {
     constructor() {
         this.contacts = [];
     }
-
     addNewContact(contact) {
         validate(contact);
         this.contacts.push(contact);
         console.log(contact.FirstName + " contact Added ");
     }
-
+    duplicateContact(contact) {
+        if (this.contacts.some((element) => element.FirstName == contact.FirstName)) {
+            console.log("Contact already Exists");
+        }
+        else {
+            this.addNewContact(contact)
+        }
+    }
     displayContactDetails() {
         this.contacts.forEach(element => {
             console.log("Full Name: " + element.FirstName + " " + element.LastName);
@@ -39,7 +45,7 @@ class AddressBook {
                 element.Zip = contact.Zip;
                 element.PhoneNumber = contact.PhoneNumber;
                 element.Email = contact.Email;
-                console.log("Edited Address Book Successfully");
+                console.log("Edited AddressBook Successfully");
             }
         });
     }
@@ -112,10 +118,8 @@ const Contact2 = new Contact(
     Zip = "123456",
     PhoneNumber = "1023445678",
     Email = "riya@gmail.com");
-
 addressbook.addNewContact(Contact1);
 addressbook.addNewContact(Contact2);
-
 const Contact3 = new Contact(
     FirstName = "Shanthi",
     LastName = "Sekar",
@@ -125,20 +129,20 @@ const Contact3 = new Contact(
     Zip = "600043",
     PhoneNumber = "1234567893",
     Email = "shanthi@gmail.com");
-
 addressbook.addNewContact(Contact3);
 
-// const UpdateContact = new Contact(
-//     FirstName = "Rithika",
-//     LastName = "Logachandran",
-//     Address = "Madhavaram",
-//     City = "Chennai",
-//     State = "TamilNadu",
-//     Zip = "600551",
-//     PhoneNumber = "9789286965",
-//     Email = "rithika@gmail.com");
-// addressbook.EditContact(UpdateContact);
+const UpdateContact = new Contact(
+    FirstName = "Rithika",
+    LastName = "Logachandran",
+    Address = "Madhavaram",
+    City = "Chennai",
+    State = "TamilNadu",
+    Zip = "600551",
+    PhoneNumber = "9789286965",
+    Email = "rithika@gmail.com");
+addressbook.EditContact(UpdateContact);
 
-addressbook.DeleteContact("Shanthi");
+//addressbook.DeleteContact("Shanthi");
 addressbook.displayContactDetails();
 addressbook.CountContact();
+addressbook.duplicateContact(Contact3);
