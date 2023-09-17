@@ -45,7 +45,7 @@ class AddressBook {
                 element.Zip = contact.Zip;
                 element.PhoneNumber = contact.PhoneNumber;
                 element.Email = contact.Email;
-                console.log("Edited Address Book Successfully");
+                console.log("Edited AddressBook Successfully");
             }
         });
     }
@@ -65,17 +65,19 @@ class AddressBook {
         }, 0);
         console.log("Total number of contacts in the Addressbook: " + count);
     }
-    City(city) {
+    City(city, name) {
         const citySearch = this.contacts.filter((element) => element.City == city);
-        console.log("The persons in the city " + city + " are: ");
-        citySearch.forEach(element => {
+        const personCity = citySearch.filter((element) => element.FirstName == name);
+        console.log("The particular person in the city " + city + " is: ");
+        personCity.forEach(element => {
             console.log("Full Name: " + element.FirstName + " " + element.LastName);
         })
     }
-    State(state) {
+    State(state, name) {
         const stateSearch = this.contacts.filter((element) => element.State == state);
-        console.log("The persons in the state " + state + " are: ");
-        stateSearch.forEach(element => {
+        const personState = stateSearch.filter((element) => element.FirstName == name);
+        console.log("The particular person in the state " + state + " is: ");
+        personState.forEach(element => {
             console.log("Full Name: " + element.FirstName + " " + element.LastName);
         })
     }
@@ -116,13 +118,13 @@ function validate(Details) {
 const addressbook = new AddressBook();
 const Contact1 = new Contact(
     FirstName = "Rithika",
-    LastName = "LOgachandran",
+    LastName = "Logachandran",
     Address = "Madhavaram",
     City = "Chennai",
     State = "TamilNadu",
     Zip = "600051",
     PhoneNumber = "9789286965",
-    Email = "rithi@gmail.com");;
+    Email = "rithi@gmail.com");
 const Contact2 = new Contact(
     FirstName = "Riya",
     LastName = "Rechi",
@@ -155,9 +157,9 @@ const UpdateContact = new Contact(
     PhoneNumber = "9789286965",
     Email = "rithika@gmail.com");
 //addressbook.EditContact(UpdateContact);
-//addressbook.DeleteContact("Shanthi");
+//addressbook.DeleteContact("Jessy");
 //addressbook.displayContactDetails();
 //addressbook.CountContact();
 //addressbook.duplicateContact(Contact3);
-addressbook.City("Chennai");
-addressbook.State("TamilNadu");
+addressbook.City("Chennai", "Riya");
+addressbook.State("TamilNadu", "Shanthi");
