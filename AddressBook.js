@@ -81,6 +81,16 @@ class AddressBook {
             console.log("Full Name: " + element.FirstName + " " + element.LastName);
         })
     }
+    CountCity(city)
+    {
+        this.citySearch = this.contacts.filter((element)=>element.City == city);
+        console.log("Total number of contacts in the city " + city + " are: "+this.citySearch.length);
+    }
+    CountState(state)
+    {
+        this.stateSearch = this.contacts.filter((element)=>element.State == state);
+        console.log("Total number of contacts in the state " + " are: "+this.stateSearch.length);
+    }
 }
 
 function validate(Details) {
@@ -161,5 +171,7 @@ const UpdateContact = new Contact(
 //addressbook.displayContactDetails();
 //addressbook.CountContact();
 //addressbook.duplicateContact(Contact3);
-addressbook.City("Chennai", "Riya");
-addressbook.State("TamilNadu", "Shanthi");
+// addressbook.City("Chennai", "Riya");
+// addressbook.State("TamilNadu", "Shanthi");
+addressbook.CountCity("Chennai");
+addressbook.CountState("TamilNadu");
