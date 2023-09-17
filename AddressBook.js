@@ -45,7 +45,7 @@ class AddressBook {
                 element.Zip = contact.Zip;
                 element.PhoneNumber = contact.PhoneNumber;
                 element.Email = contact.Email;
-                console.log("Edited AddressBook Successfully");
+                console.log("Edited Address Book Successfully");
             }
         });
     }
@@ -64,6 +64,20 @@ class AddressBook {
             return count + 1
         }, 0);
         console.log("Total number of contacts in the Addressbook: " + count);
+    }
+    City(city) {
+        const citySearch = this.contacts.filter((element) => element.City == city);
+        console.log("The persons in the city " + city + " are: ");
+        citySearch.forEach(element => {
+            console.log("Full Name: " + element.FirstName + " " + element.LastName);
+        })
+    }
+    State(state) {
+        const stateSearch = this.contacts.filter((element) => element.State == state);
+        console.log("The persons in the state " + state + " are: ");
+        stateSearch.forEach(element => {
+            console.log("Full Name: " + element.FirstName + " " + element.LastName);
+        })
     }
 }
 
@@ -108,7 +122,7 @@ const Contact1 = new Contact(
     State = "TamilNadu",
     Zip = "600051",
     PhoneNumber = "9789286965",
-    Email = "rithi@gmail.com");
+    Email = "rithi@gmail.com");;
 const Contact2 = new Contact(
     FirstName = "Riya",
     LastName = "Rechi",
@@ -140,9 +154,10 @@ const UpdateContact = new Contact(
     Zip = "600551",
     PhoneNumber = "9789286965",
     Email = "rithika@gmail.com");
-addressbook.EditContact(UpdateContact);
-
+//addressbook.EditContact(UpdateContact);
 //addressbook.DeleteContact("Shanthi");
-addressbook.displayContactDetails();
-addressbook.CountContact();
-addressbook.duplicateContact(Contact3);
+//addressbook.displayContactDetails();
+//addressbook.CountContact();
+//addressbook.duplicateContact(Contact3);
+addressbook.City("Chennai");
+addressbook.State("TamilNadu");
