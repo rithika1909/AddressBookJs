@@ -102,6 +102,42 @@ class AddressBook {
         });
         this.displayContactDetails();
     }
+    SortCity() {
+        this.contacts.sort((a, b) => {
+            let n1 = a.City;
+            let n2 = b.City;
+            if (n1 < n2)
+                return -1;
+            else
+                return 1;
+        });
+        console.log("Sorted by city:");
+        this.displayContactDetails();
+    }
+    SortState() {
+        this.contacts.sort((a, b) => {
+            let n1 = a.State;
+            let n2 = b.State;
+            if (n1 < n2)
+                return -1;
+            else
+                return 1;
+        });
+        console.log("Sorted by state:");
+        this.displayContactDetails();
+    }
+    SortZip() {
+        this.contacts.sort((a, b) => {
+            let n1 = a.Zip;
+            let n2 = b.Zip;
+            if (n1 < n2)
+                return -1;
+            else
+                return 1;
+        });
+        console.log("Sorted by zip:");
+        this.displayContactDetails();
+    }
 }
 
 function validate(Details) {
@@ -187,4 +223,7 @@ const UpdateContact = new Contact(
 // addressbook.CountCity("Chennai");
 // addressbook.CountState("TamilNadu");
 //addressbook.CountState("Kerala");
-addressbook.SortName();
+// addressbook.SortName();
+addressbook.SortCity();
+addressbook.SortState();
+addressbook.SortZip();
