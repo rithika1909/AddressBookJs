@@ -14,24 +14,40 @@ class Contact {
 
 class AddressBook {
     constructor() {
-        this.contacts = [];
-    }
-
+        this.contacts = [];}
+    
     addNewContact(contact) {
-        this.contacts.push(contact);
-        console.log("Contact Added " + contact.FirstName);
-    }
+    this.contacts.push(contact);
+    console.log("Contact Added " + contact.FirstName);}
 
     displayContactDetails() {
-        this.contacts.forEach(element => {
-            console.log("Full Name: " + element.FirstName + " " + element.LastName);
-        });
-    }
+    this.contacts.forEach(element => {
+        console.log("Full Name: "+element.FirstName + " " + element.LastName);
+    });}
 }
-
-function validate(Details) {
-    console.log(Details.FirstName + " " + Details.LastName + " " + Details.Address + " " + Details.City
-        + " " + Details.State + " " + Details.Zip + " " + Details.PhoneNumber + " " + Details.Email);
+const addressbook=new AddressBook();
+const Contact1 = new Contact(
+    FirstName= "Rithika",
+    LastName= "Logachandran",
+    Address= "Madhavaram",
+    City= "Chennai",
+    State= "TamilNadu",
+    Zip ="600051",
+    PhoneNumber= "9789286965",
+    Email= "rithi@gmail.com");
+const Contact2 = new Contact(
+     FirstName = "Riya",
+     LastName = "Rechi",
+     Address = "Bhavan",
+     City = "Pathanamthitta",
+     State = "Kerala",
+     Zip = "123456",
+     PhoneNumber = "1023445678",
+     Email = "riya@gmail.com");
+     
+function validateName(Details) {
+    console.log(Details.FirstName + " " + Details.LastName + " " + Details.Address + " " + Details.City 
+    + " " + Details.State + " " + Details.Zip + " " + Details.PhoneNumber + " " + Details.Email);
     if (!/^[A-Z][a-zA-Z]{2,}$/.test(Details.FirstName)) {
         throw new Error("Invalid First Name");
     }
@@ -61,37 +77,7 @@ function validate(Details) {
     }
 }
 
-const addressbook = new AddressBook();
-const Contact1 = new Contact(
-    FirstName = "Rithika",
-    LastName = "LOgachandran",
-    Address = "Madhavaram",
-    City = "Chennai",
-    State = "TamilNadu",
-    Zip = "600051",
-    PhoneNumber = "9789286965",
-    Email = "rithi@gmail.com");
-const Contact2 = new Contact(
-    FirstName = "Riya",
-    LastName = "Rechi",
-    Address = "Bhavan",
-    City = "Pathanamthitta",
-    State = "Kerala",
-    Zip = "123456",
-    PhoneNumber = "1023445678",
-    Email = "riya@gmail.com");
-validate(Contact1);
-validate(Contact2);
 
-const Contact3 = new Contact(
-    FirstName = "Shanthi",
-    LastName = "Sekar",
-    Address = "Manali",
-    City = "Chennai",
-    State = "TamilNadu",
-    Zip = "600043",
-    PhoneNumber = "1234567893",
-    Email = "shanthi@gmail.com");
-validate(Contact3);
-
+validateName(Contact1);
+validateName(Contact2);
 addressbook.displayContactDetails();
