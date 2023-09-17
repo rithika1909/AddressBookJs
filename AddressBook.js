@@ -25,11 +25,6 @@ class AddressBook {
         console.log("Full Name: "+element.FirstName + " " + element.LastName);
     });}
 }
-
-
-
-
-
 const addressbook=new AddressBook();
 const Contact1 = new Contact(
     FirstName= "Rithika",
@@ -41,14 +36,14 @@ const Contact1 = new Contact(
     PhoneNumber= "9789286965",
     Email= "rithi@gmail.com");
 const Contact2 = new Contact(
-     FirstName = "Smokey",
-     LastName = "Toffee",
+     FirstName = "Riya",
+     LastName = "R",
      Address = "Bhavan",
      City = "Pathanamthitta",
      State = "Kerala",
      Zip = "123456",
      PhoneNumber = "1023445678",
-     Email = "smoto@gmail.com");
+     Email = "riya@gmail.com");
      
 function validateName(Details) {
     console.log(Details.FirstName + " " + Details.LastName + " " + Details.Address + " " + Details.City 
@@ -84,5 +79,5 @@ function validateName(Details) {
 
 
 validateName(Contact1);
-validateName(Contact2)
+validateName(Contact2);
 addressbook.displayContactDetails();
