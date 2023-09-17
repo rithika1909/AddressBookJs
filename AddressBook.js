@@ -91,6 +91,17 @@ class AddressBook {
         this.stateSearch = this.contacts.filter((element)=>element.State == state);
         console.log("Total number of contacts in the state " + " are: "+this.stateSearch.length);
     }
+    SortName() {
+        this.contacts.sort((a, b) => {
+            let n1 = a.FirstName;
+            let n2 = b.FirstName;
+            if (n1 < n2)
+                return -1;
+            else
+                return 1;
+        });
+        this.displayContactDetails();
+    }
 }
 
 function validate(Details) {
@@ -173,5 +184,7 @@ const UpdateContact = new Contact(
 //addressbook.duplicateContact(Contact3);
 // addressbook.City("Chennai", "Riya");
 // addressbook.State("TamilNadu", "Shanthi");
-addressbook.CountCity("Chennai");
-addressbook.CountState("TamilNadu");
+// addressbook.CountCity("Chennai");
+// addressbook.CountState("TamilNadu");
+//addressbook.CountState("Kerala");
+addressbook.SortName();
